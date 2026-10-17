@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selamat Ulang Tahun! ✨🎂</title>
+  <title>Selamat Ulang Tahun Noviku Sayang ✨🎂</title>
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -180,6 +180,116 @@
       background: #f472b6;
       border-radius: 9999px;
     }
+
+    /* Blooming Flower Garden Animations */
+    @keyframes bloomOpen {
+      0% { transform: scale(0) rotate(0deg); opacity: 0; }
+      50% { transform: scale(1.15) rotate(10deg); opacity: 1; }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    @keyframes stemGrow {
+      0% { height: 0; opacity: 0; }
+      100% { height: 100%; opacity: 1; }
+    }
+
+    @keyframes leafSway {
+      0%, 100% { transform: rotate(-15deg) scale(1); }
+      50% { transform: rotate(5deg) scale(1.05); }
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(-2deg); }
+      50% { transform: rotate(2deg); }
+    }
+
+    @keyframes petalFloat {
+      0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+      50% { opacity: 0.8; }
+      100% { transform: translate(var(--petal-dx), var(--petal-dy)) rotate(var(--petal-rot)); opacity: 0; }
+    }
+
+    @keyframes butterflyFly {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(40px, -30px) rotate(10deg); }
+      50% { transform: translate(80px, -10px) rotate(-5deg); }
+      75% { transform: translate(40px, -40px) rotate(8deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+
+    @keyframes wingFlap {
+      0%, 100% { transform: scaleX(1); }
+      50% { transform: scaleX(0.3); }
+    }
+
+    .flower-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .flower-head {
+      position: relative;
+      animation: bloomOpen 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .flower-petal {
+      position: absolute;
+      width: 20px;
+      height: 32px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      transform-origin: bottom center;
+    }
+
+    .flower-center {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .flower-stem-line {
+      width: 3px;
+      border-radius: 2px;
+      animation: stemGrow 1s ease-out forwards;
+      transform-origin: top;
+    }
+
+    .flower-leaf {
+      position: absolute;
+      width: 18px;
+      height: 10px;
+      border-radius: 50% 0 50% 0;
+      animation: leafSway 3s ease-in-out infinite;
+    }
+
+    .flower-whole {
+      animation: sway var(--sway-dur, 3s) ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    .floating-petal {
+      position: absolute;
+      pointer-events: none;
+      font-size: 1rem;
+      animation: petalFloat var(--petal-dur, 4s) ease-out forwards;
+      opacity: 0.9;
+    }
+
+    .butterfly {
+      position: absolute;
+      animation: butterflyFly 8s ease-in-out infinite;
+      font-size: 1.3rem;
+      filter: drop-shadow(0 2px 4px rgba(236, 72, 153, 0.3));
+    }
+
+    .butterfly-wing {
+      display: inline-block;
+      animation: wingFlap 0.3s ease-in-out infinite;
+    }
   </style>
 </head>
 <body class="min-h-screen text-pink-900 relative">
@@ -211,12 +321,11 @@
       </span>
 
       <h1 class="font-cartoon text-2xl sm:text-4xl font-extrabold text-pink-600 mb-2 sm:mb-3 tracking-wide">
-        Ada Surat Spesial Nih! ✨
+        Untuk kamu my princessku ✨
       </h1>
       
       <p class="text-pink-700/80 text-xs sm:text-base mb-6 sm:mb-8 leading-relaxed font-semibold">
-        Seseorang sedang merayakan hari paling bahagia hari ini! Yuk buka kadonya dan lihat kejutannya! 🎈🧁
-      </p>
+Novianti Ramadhani 💖      </p>
 
       <!-- Open Button -->
       <button 
@@ -229,7 +338,6 @@
       </button>
 
       <p class="text-[10px] sm:text-[11px] text-pink-400 mt-3 sm:mt-4 italic font-medium">
-        (Psst! Klik tombolnya untuk memutar lagu ceria 🎵)
       </p>
     </div>
   </div>
@@ -258,7 +366,7 @@
         🎉 Happy Birthday To You! 🎉
       </div>
       <h1 class="font-cartoon text-3xl sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-rose-500 to-fuchsia-500 drop-shadow-sm tracking-wide">
-        Selamat Ulang Tahun!
+"Happy 20th birthday!"
       </h1>
       <p class="text-pink-600 font-semibold text-xs sm:text-base md:text-lg mt-1 font-cartoon">
         Semoga harimu penuh tawa, keajaiban, dan kebahagiaan! 🌸✨
@@ -279,7 +387,7 @@
           <div class="relative w-full aspect-square rounded-xl overflow-hidden bg-pink-50 border border-pink-100 group">
             <img 
               id="birthdayPhoto"
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" 
+              src="foto/foto.JPG" 
               alt="Foto Ulang Tahun" 
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               onerror="this.src='https://placehold.co/400x400/fbcfe8/be185d?text=Princess+Birthday'"
@@ -297,21 +405,7 @@
             <p class="text-[11px] sm:text-xs text-pink-400 font-medium">Bidadari paling manis hari ini 🌷</p>
           </div>
 
-          <!-- Change Photo Button -->
-          <div class="mt-2 pt-2 border-t border-dashed border-pink-200 flex justify-center gap-2">
-            <label class="cursor-pointer text-[10px] sm:text-[11px] font-bold text-pink-500 hover:text-pink-700 active:scale-95 bg-pink-50 hover:bg-pink-100 px-2.5 py-1 rounded-full transition-colors flex items-center gap-1 border border-pink-200">
-              📷 Ganti Foto
-              <input type="file" id="photoInput" accept="image/*" class="hidden">
-            </label>
-            <button id="renameBtn" class="text-[10px] sm:text-[11px] font-bold text-pink-500 hover:text-pink-700 active:scale-95 bg-pink-50 hover:bg-pink-100 px-2.5 py-1 rounded-full transition-colors border border-pink-200">
-              ✏️ Ganti Nama
-            </button>
-          </div>
         </div>
-
-        <span class="text-[10px] sm:text-xs text-pink-400 mt-2.5 italic text-center px-2">
-          💡 Tips: Sentuh "Ganti Foto" untuk pakai foto dari galeri HP!
-        </span>
       </div>
 
       <!-- Right: Birthday Letter & Wishes -->
@@ -339,8 +433,7 @@
 
         <div class="mt-4 pt-3.5 sm:mt-5 sm:pt-4 border-t border-pink-100 flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p class="text-[10px] sm:text-xs text-pink-400">Dari seseorang yang selalu mendoakanmu,</p>
-            <p class="font-cartoon text-pink-600 font-bold text-sm sm:text-base">Sahabat / Teman Spesialmu 💕</p>
+            <p class="font-cartoon text-pink-600 font-bold text-sm sm:text-base">dari your boy, Farid Suryadi💕</p>
           </div>
           <button id="sendLoveBtn" class="bg-rose-400 hover:bg-rose-500 active:scale-95 text-white font-bold text-xs sm:text-sm px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl shadow-md transition-all flex items-center gap-1.5 ml-auto">
             <span>Kirim Peluk</span> 🤗
@@ -420,7 +513,6 @@
           Momen-Momen Terindah Kita 💖✨
         </h3>
         <p class="text-[11px] sm:text-sm text-pink-500 font-medium">
-          Slide bergerak otomatis! Sentuh foto untuk berhenti atau geser manual
         </p>
       </div>
 
@@ -439,10 +531,6 @@
           </button>
         </div>
 
-        <label class="cursor-pointer bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white font-cartoon font-bold text-[11px] sm:text-xs px-3 sm:px-3.5 py-1.5 rounded-full shadow-md transition flex items-center gap-1 hover:scale-105 active:scale-95">
-          <span>📁 Unggah Foto Kamu (10-15)</span>
-          <input type="file" id="multiPhotoInput" accept="image/*" multiple class="hidden">
-        </label>
       </div>
 
       <!-- Marquee Carousel Wrapper with Touch Event Handling -->
@@ -456,51 +544,203 @@
           <!-- Populated by JS -->
         </div>
       </div>
-
-      <div class="text-center mt-2 sm:mt-3">
-        <span class="text-[10px] sm:text-[11px] text-pink-400 italic">
-          ✨ Tips: Ketuk foto manapun untuk melihat judul & memunculkan efek cinta!
-        </span>
-      </div>
     </div>
 
-    <!-- Active Party Floating Elements Indicator -->
-    <div class="text-center w-full mb-6">
-      <div class="inline-flex items-center gap-1.5 sm:gap-2 bg-pink-100/90 border border-pink-300 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-pink-600 font-cartoon font-bold text-[11px] sm:text-sm animate-pulse shadow-sm">
-        <span>🎈</span> Hujan Balon & Konfeti Otomatis Aktif! <span>🎉</span>
+    <!-- Blooming Flower Garden Animation -->
+    <div class="w-full bg-gradient-to-b from-pink-50/80 via-white/90 to-rose-50/80 backdrop-blur-md rounded-3xl p-6 sm:p-10 border-2 border-pink-200 shadow-xl mb-8 relative overflow-hidden">
+      <div class="text-center mb-4 sm:mb-6">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-100 text-pink-600 font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-1 font-cartoon">
+          🌸 Taman Bunga Cinta
+        </span>
+        <h3 class="font-cartoon text-xl sm:text-3xl font-extrabold text-pink-600">
+          Mekar Untukmu 🌷💕
+        </h3>
+        <p class="text-[11px] sm:text-xs text-pink-500 font-medium mt-1">
+          Sentuh setiap bunga atau tekan tombol di bawah untuk menyiram & memekarkannya! ✨
+        </p>
       </div>
+
+      <!-- Floating Petals Background -->
+      <div id="floatingPetalsContainer" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
+
+      <!-- Butterflies -->
+      <div class="butterfly" style="top: 15%; left: 20%; animation-delay: 0s;">
+        <span class="butterfly-wing">🦋</span>
+      </div>
+      <div class="butterfly" style="top: 25%; right: 15%; animation-delay: -3s; animation-duration: 10s;">
+        <span class="butterfly-wing" style="animation-delay: -0.15s;">🦋</span>
+      </div>
+
+      <!-- Flower Garden Row -->
+      <div class="flex items-end justify-center gap-4 sm:gap-8 md:gap-10 py-6 sm:py-8 relative z-10" id="flowerGarden">
+
+        <!-- Flower 1: Pink Rose -->
+        <div class="flower-whole" style="--sway-dur: 3.2s;">
+          <div class="flower-container">
+            <div class="flower-head" style="animation-delay: 0.2s; width: 50px; height: 50px;">
+              <div class="flower-petal" style="background: #f472b6; transform: rotate(0deg) translateY(-14px);"></div>
+              <div class="flower-petal" style="background: #f9a8d4; transform: rotate(45deg) translateY(-14px);"></div>
+              <div class="flower-petal" style="background: #f472b6; transform: rotate(90deg) translateY(-14px);"></div>
+              <div class="flower-petal" style="background: #f9a8d4; transform: rotate(135deg) translateY(-14px);"></div>
+              <div class="flower-petal" style="background: #f472b6; transform: rotate(180deg) translateY(-14px);"></div>
+              <div class="flower-petal" style="background: #f9a8d4; transform: rotate(225deg) translateY(-14px);"></div>
+              <div class="flower-petal" style="background: #f472b6; transform: rotate(270deg) translateY(-14px);"></div>
+              <div class="flower-petal" style="background: #f9a8d4; transform: rotate(315deg) translateY(-14px);"></div>
+              <div class="flower-center" style="background: radial-gradient(circle, #fbbf24, #f59e0b); top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;"></div>
+            </div>
+            <div class="relative" style="height: 70px;">
+              <div class="flower-stem-line" style="background: linear-gradient(to bottom, #86efac, #22c55e); height: 100%; margin: 0 auto;"></div>
+              <div class="flower-leaf" style="background: #4ade80; left: 3px; top: 20px; transform: rotate(-15deg);"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flower 2: Sunflower -->
+        <div class="flower-whole" style="--sway-dur: 3.8s;">
+          <div class="flower-container">
+            <div class="flower-head" style="animation-delay: 0.6s; width: 55px; height: 55px;">
+              <div class="flower-petal" style="background: #fbbf24; width: 16px; height: 28px; transform: rotate(0deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fcd34d; width: 16px; height: 28px; transform: rotate(30deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fbbf24; width: 16px; height: 28px; transform: rotate(60deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fcd34d; width: 16px; height: 28px; transform: rotate(90deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fbbf24; width: 16px; height: 28px; transform: rotate(120deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fcd34d; width: 16px; height: 28px; transform: rotate(150deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fbbf24; width: 16px; height: 28px; transform: rotate(180deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fcd34d; width: 16px; height: 28px; transform: rotate(210deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fbbf24; width: 16px; height: 28px; transform: rotate(240deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fcd34d; width: 16px; height: 28px; transform: rotate(270deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fbbf24; width: 16px; height: 28px; transform: rotate(300deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fcd34d; width: 16px; height: 28px; transform: rotate(330deg) translateY(-12px);"></div>
+              <div class="flower-center" style="background: radial-gradient(circle, #92400e, #78350f); width: 22px; height: 22px; top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;"></div>
+            </div>
+            <div class="relative" style="height: 90px;">
+              <div class="flower-stem-line" style="background: linear-gradient(to bottom, #86efac, #16a34a); height: 100%; margin: 0 auto;"></div>
+              <div class="flower-leaf" style="background: #22c55e; right: 3px; top: 25px; transform: rotate(15deg); border-radius: 0 50% 0 50%;"></div>
+              <div class="flower-leaf" style="background: #4ade80; left: 3px; top: 50px; transform: rotate(-15deg);"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flower 3: Lavender -->
+        <div class="flower-whole" style="--sway-dur: 2.8s;">
+          <div class="flower-container">
+            <div class="flower-head" style="animation-delay: 1s; width: 42px; height: 42px;">
+              <div class="flower-petal" style="background: #c084fc; width: 18px; height: 26px; transform: rotate(0deg) translateY(-10px);"></div>
+              <div class="flower-petal" style="background: #d8b4fe; width: 18px; height: 26px; transform: rotate(60deg) translateY(-10px);"></div>
+              <div class="flower-petal" style="background: #c084fc; width: 18px; height: 26px; transform: rotate(120deg) translateY(-10px);"></div>
+              <div class="flower-petal" style="background: #d8b4fe; width: 18px; height: 26px; transform: rotate(180deg) translateY(-10px);"></div>
+              <div class="flower-petal" style="background: #c084fc; width: 18px; height: 26px; transform: rotate(240deg) translateY(-10px);"></div>
+              <div class="flower-petal" style="background: #d8b4fe; width: 18px; height: 26px; transform: rotate(300deg) translateY(-10px);"></div>
+              <div class="flower-center" style="background: radial-gradient(circle, #fde047, #facc15); width: 14px; height: 14px; top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;"></div>
+            </div>
+            <div class="relative" style="height: 80px;">
+              <div class="flower-stem-line" style="background: linear-gradient(to bottom, #86efac, #22c55e); height: 100%; margin: 0 auto;"></div>
+              <div class="flower-leaf" style="background: #4ade80; left: 3px; top: 30px; transform: rotate(-20deg);"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flower 4: Big Rose (Center Feature) -->
+        <div class="flower-whole" style="--sway-dur: 3.5s;">
+          <div class="flower-container">
+            <div class="flower-head" style="animation-delay: 0.4s; width: 65px; height: 65px;">
+              <div class="flower-petal" style="background: #fb7185; width: 24px; height: 38px; transform: rotate(0deg) translateY(-16px);"></div>
+              <div class="flower-petal" style="background: #fda4af; width: 24px; height: 38px; transform: rotate(45deg) translateY(-16px);"></div>
+              <div class="flower-petal" style="background: #fb7185; width: 24px; height: 38px; transform: rotate(90deg) translateY(-16px);"></div>
+              <div class="flower-petal" style="background: #fda4af; width: 24px; height: 38px; transform: rotate(135deg) translateY(-16px);"></div>
+              <div class="flower-petal" style="background: #fb7185; width: 24px; height: 38px; transform: rotate(180deg) translateY(-16px);"></div>
+              <div class="flower-petal" style="background: #fda4af; width: 24px; height: 38px; transform: rotate(225deg) translateY(-16px);"></div>
+              <div class="flower-petal" style="background: #fb7185; width: 24px; height: 38px; transform: rotate(270deg) translateY(-16px);"></div>
+              <div class="flower-petal" style="background: #fda4af; width: 24px; height: 38px; transform: rotate(315deg) translateY(-16px);"></div>
+              <div class="flower-center" style="background: radial-gradient(circle, #fbbf24, #f59e0b); width: 22px; height: 22px; top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;"></div>
+            </div>
+            <div class="relative" style="height: 100px;">
+              <div class="flower-stem-line" style="background: linear-gradient(to bottom, #86efac, #15803d); width: 4px; height: 100%; margin: 0 auto;"></div>
+              <div class="flower-leaf" style="background: #22c55e; right: 4px; top: 25px; transform: rotate(15deg); border-radius: 0 50% 0 50%; width: 22px; height: 12px;"></div>
+              <div class="flower-leaf" style="background: #4ade80; left: 4px; top: 55px; transform: rotate(-15deg); width: 20px; height: 11px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flower 5: Daisy -->
+        <div class="flower-whole" style="--sway-dur: 3s;">
+          <div class="flower-container">
+            <div class="flower-head" style="animation-delay: 1.2s; width: 46px; height: 46px;">
+              <div class="flower-petal" style="background: white; border: 1px solid #fecdd3; width: 16px; height: 26px; transform: rotate(0deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fff1f2; border: 1px solid #fecdd3; width: 16px; height: 26px; transform: rotate(45deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: white; border: 1px solid #fecdd3; width: 16px; height: 26px; transform: rotate(90deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fff1f2; border: 1px solid #fecdd3; width: 16px; height: 26px; transform: rotate(135deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: white; border: 1px solid #fecdd3; width: 16px; height: 26px; transform: rotate(180deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fff1f2; border: 1px solid #fecdd3; width: 16px; height: 26px; transform: rotate(225deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: white; border: 1px solid #fecdd3; width: 16px; height: 26px; transform: rotate(270deg) translateY(-12px);"></div>
+              <div class="flower-petal" style="background: #fff1f2; border: 1px solid #fecdd3; width: 16px; height: 26px; transform: rotate(315deg) translateY(-12px);"></div>
+              <div class="flower-center" style="background: radial-gradient(circle, #fde047, #eab308); width: 16px; height: 16px; top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;"></div>
+            </div>
+            <div class="relative" style="height: 75px;">
+              <div class="flower-stem-line" style="background: linear-gradient(to bottom, #86efac, #22c55e); height: 100%; margin: 0 auto;"></div>
+              <div class="flower-leaf" style="background: #4ade80; right: 3px; top: 20px; transform: rotate(10deg); border-radius: 0 50% 0 50%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flower 6: Tulip -->
+        <div class="flower-whole" style="--sway-dur: 3.6s;">
+          <div class="flower-container">
+            <div class="flower-head" style="animation-delay: 0.8s; width: 40px; height: 45px;">
+              <div class="flower-petal" style="background: #f472b6; width: 18px; height: 34px; border-radius: 50% 50% 20% 20%; transform: rotate(-15deg) translateY(-5px);"></div>
+              <div class="flower-petal" style="background: #ec4899; width: 18px; height: 34px; border-radius: 50% 50% 20% 20%; transform: rotate(0deg) translateY(-8px);"></div>
+              <div class="flower-petal" style="background: #f472b6; width: 18px; height: 34px; border-radius: 50% 50% 20% 20%; transform: rotate(15deg) translateY(-5px);"></div>
+            </div>
+            <div class="relative" style="height: 85px;">
+              <div class="flower-stem-line" style="background: linear-gradient(to bottom, #86efac, #16a34a); height: 100%; margin: 0 auto;"></div>
+              <div class="flower-leaf" style="background: #22c55e; left: 3px; top: 35px; transform: rotate(-20deg); width: 20px; height: 10px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flower 7: Small Cherry Blossom -->
+        <div class="flower-whole" style="--sway-dur: 2.5s;">
+          <div class="flower-container">
+            <div class="flower-head" style="animation-delay: 1.4s; width: 38px; height: 38px;">
+              <div class="flower-petal" style="background: #fbcfe8; width: 16px; height: 22px; transform: rotate(0deg) translateY(-10px);"></div>
+              <div class="flower-petal" style="background: #f9a8d4; width: 16px; height: 22px; transform: rotate(72deg) translateY(-10px);"></div>
+              <div class="flower-petal" style="background: #fbcfe8; width: 16px; height: 22px; transform: rotate(144deg) translateY(-10px);"></div>
+              <div class="flower-petal" style="background: #f9a8d4; width: 16px; height: 22px; transform: rotate(216deg) translateY(-10px);"></div>
+              <div class="flower-petal" style="background: #fbcfe8; width: 16px; height: 22px; transform: rotate(288deg) translateY(-10px);"></div>
+              <div class="flower-center" style="background: radial-gradient(circle, #fda4af, #fb7185); width: 12px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;"></div>
+            </div>
+            <div class="relative" style="height: 60px;">
+              <div class="flower-stem-line" style="background: linear-gradient(to bottom, #86efac, #22c55e); height: 100%; margin: 0 auto;"></div>
+              <div class="flower-leaf" style="background: #4ade80; right: 3px; top: 15px; transform: rotate(12deg); border-radius: 0 50% 0 50%;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Interactive Garden Button -->
+      <div class="text-center my-4 relative z-20">
+        <button id="waterGardenBtn" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 via-rose-400 to-pink-500 hover:from-pink-600 hover:to-rose-500 text-white font-cartoon text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full shadow-md hover:shadow-pink-300 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-pink-300">
+          <span class="text-base sm:text-lg">🚿</span> Siram & Mekarkan Semua Bunga 🌸✨
+        </button>
+      </div>
+
+      <!-- Grass at the bottom -->
+      <div class="absolute bottom-0 left-0 right-0 h-8 sm:h-10 bg-gradient-to-t from-green-300/60 via-green-200/40 to-transparent rounded-b-3xl"></div>
+
+      <p class="text-center text-xs sm:text-sm text-pink-500 font-cartoon font-bold relative z-10">
+        Setiap bunga mekar mengingatkanku akan senyummu 🌸💖
+      </p>
     </div>
 
     <!-- Footer Note -->
     <footer class="text-center text-[11px] sm:text-xs text-pink-400 font-medium pb-6 sm:pb-8">
-      Dibuat khusus penuh cinta dengan keajaiban kartun warna pink 🎀✨
+      Dibuat khusus penuh cinta 🎀✨
     </footer>
 
   </main>
 
-  <!-- Modal Ubah Nama (Custom Friendly Dialog) -->
-  <div id="renameModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-pink-900/40 backdrop-blur-sm hidden transition-opacity duration-200">
-    <div class="bg-white rounded-3xl p-5 sm:p-6 w-full max-w-xs sm:max-w-sm border-3 border-pink-300 shadow-2xl text-center">
-      <div class="text-3xl mb-2">✨🎀✨</div>
-      <h4 class="font-cartoon font-bold text-lg text-pink-600 mb-1">Ganti Nama Spesial</h4>
-      <p class="text-xs text-pink-400 mb-4 font-medium">Tuliskan nama orang tersayang yang lagi ulang tahun:</p>
-      <input 
-        id="nameInputField" 
-        type="text" 
-        maxlength="25" 
-        placeholder="Nama orang tersayang..." 
-        class="w-full px-3.5 py-2.5 rounded-xl border-2 border-pink-200 focus:outline-none focus:border-pink-500 text-pink-700 font-cartoon text-sm text-center mb-4 bg-pink-50/50"
-      >
-      <div class="flex gap-2">
-        <button id="cancelRenameBtn" class="flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold text-pink-500 bg-pink-100 hover:bg-pink-200 active:scale-95 transition-all">
-          Batal
-        </button>
-        <button id="saveRenameBtn" class="flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-pink-500 hover:bg-pink-600 active:scale-95 transition-all shadow-md">
-          Simpan ✨
-        </button>
-      </div>
-    </div>
-  </div>
+
 
   <!-- Notification Toast Modal -->
   <div id="toast" class="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 max-w-[90vw] bg-pink-600 text-white font-cartoon text-xs sm:text-sm px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-2xl transition-all duration-300 opacity-0 pointer-events-none transform translate-y-6 z-50 flex items-center justify-center gap-2">
@@ -973,57 +1213,8 @@
       }
     });
 
-    const photoInput = document.getElementById('photoInput');
     const birthdayPhoto = document.getElementById('birthdayPhoto');
-    const renameBtn = document.getElementById('renameBtn');
     const birthdayName = document.getElementById('birthdayName');
-
-    // Handle Image Upload
-    photoInput.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          birthdayPhoto.src = event.target.result;
-          showToast("Foto berhasil diganti! Cantik banget! 💖");
-          fireBigConfetti();
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-
-    // Custom Modal Rename Logic (Tanpa window.prompt yang rawan terblokir)
-    const renameModal = document.getElementById('renameModal');
-    const nameInputField = document.getElementById('nameInputField');
-    const saveRenameBtn = document.getElementById('saveRenameBtn');
-    const cancelRenameBtn = document.getElementById('cancelRenameBtn');
-
-    renameBtn.addEventListener('click', () => {
-      const currentText = birthdayName.textContent.replace('✨', '').trim();
-      nameInputField.value = currentText;
-      renameModal.classList.remove('hidden');
-      nameInputField.focus();
-    });
-
-    cancelRenameBtn.addEventListener('click', () => {
-      renameModal.classList.add('hidden');
-    });
-
-    saveRenameBtn.addEventListener('click', () => {
-      const newName = nameInputField.value.trim();
-      if (newName) {
-        birthdayName.textContent = newName + " ✨";
-        showToast(`Nama diubah menjadi "${newName}"! 🎀`);
-      }
-      renameModal.classList.add('hidden');
-    });
-
-    // Tutup modal jika klik di luar box
-    renameModal.addEventListener('click', (e) => {
-      if (e.target === renameModal) {
-        renameModal.classList.add('hidden');
-      }
-    });
 
     document.getElementById('confettiBtn').addEventListener('click', () => {
       fireBigConfetti();
@@ -1062,9 +1253,9 @@
     /* Typewriter Effect Logic for Birthday Wishes */
     const typewriterParagraphs = [
       { text: "Hai kamu yang lagi bertambah usia! 🎂✨", isQuote: false },
-      { text: "Selamat ulang tahun ya! Terima kasih sudah menjadi sosok yang selalu membawa keceriaan, senyum manis, dan kehangatan buat orang-orang di sekitarmu.", isQuote: false },
-      { text: '"Semoga di usiamu yang baru ini, setiap langkahmu dipenuhi keberkahan, impian-impianmu segera terwujud, sehat selalu, dan selalu dikelilingi cinta yang tulus!" 🌸💫', isQuote: true },
-      { text: "Jangan lupa tersenyum manis hari ini, makan kue yang banyak, dan rayakan hari istimewamu dengan penuh rasa syukur! 🍰🎈", isQuote: false }
+      { text: "Selamat ulang tahun ya! Terima kasih sudah menjadi sosok yang selalu membawa keceriaan, senyum manis, dan kehangatan buat aku.", isQuote: false },
+      { text: '"Semoga di usiamu yang baru ini, setiap langkahmu dipenuhi keberkahan, impian-impianmu segera terwujud, sehat selalu, aaamiin ya robal alamiin!" 🌸💫', isQuote: true },
+      { text: "Maafin aku akhir-akhir ini sibuk, dan waktu aku sama kamu jadi berkurang, maafin banget, tapi aku gak lupa kok, hari ini hari spesial kamu, happy birthday cantik, my princeskuu, aku harap kita bisa sama-sama terus yah cantik, sampe selamanya amiinnn, love youuu 🍰🎈", isQuote: false }
     ];
 
     let currentParagraphIdx = 0;
@@ -1173,7 +1364,8 @@
       }
 
       currentCharIdx++;
-      const currentSubstr = currentItem.text.slice(0, currentCharIdx);
+      const chars = Array.from(currentItem.text);
+      const currentSubstr = chars.slice(0, currentCharIdx).join('');
       pElem.textContent = currentSubstr;
       pElem.appendChild(cursor);
 
@@ -1183,7 +1375,7 @@
       }
 
       // Cek apakah paragraf saat ini sudah selesai
-      if (currentCharIdx >= currentItem.text.length) {
+      if (currentCharIdx >= chars.length) {
         currentParagraphIdx++;
         currentCharIdx = 0;
         // Jeda sedikit lebih lama antar paragraf
@@ -1223,18 +1415,21 @@
 
     // Array of 12 cute aesthetic memory photos with captions
     let memoryPhotos = [
-      { url: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80", caption: "Senyum Manis 😊", tag: "Happy!" },
-      { url: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80", caption: "Bidadari Cantik 🌸", tag: "Princess" },
-      { url: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80", caption: "Tawa Paling Ceria ✨", tag: "Shine" },
-      { url: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80", caption: "Hari Bahagia 🧁", tag: "Sweet" },
-      { url: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80", caption: "Momen Terbaik 🌷", tag: "Precious" },
-      { url: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80", caption: "Gemas Banget 🧸", tag: "Cute" },
-      { url: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=400&q=80", caption: "Seru-seruan Bareng 🎉", tag: "Party" },
-      { url: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=400&q=80", caption: "Keceriaan Hari Ini 🎈", tag: "Joy" },
-      { url: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=400&q=80", caption: "Selalu Menggemaskan 💖", tag: "Adorable" },
-      { url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80", caption: "Bintang Hari Ini 🌟", tag: "Star" },
-      { url: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80", caption: "Penuh Rasa Syukur 💐", tag: "Blessed" },
-      { url: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=400&q=80", caption: "Kenangan Abadi 🎀", tag: "Forever" }
+      { url: "foto/1.PNG", caption: "Senyum Manis 😊", tag: "Kenangan 1" },
+      { url: "foto/2.PNG", caption: "Bidadari Cantik 🌸", tag: "Kenangan 2" },
+      { url: "foto/3.PNG", caption: "Tawa Paling Ceria ✨", tag: "Kenangan 3" },
+      { url: "foto/4.PNG", caption: "Hari Bahagia 🧁", tag: "Kenangan 4" },
+      { url: "foto/5.JPG", caption: "Momen Terbaik 🌷", tag: "Kenangan 5" },
+      { url: "foto/6.JPG", caption: "Gemas Banget 🧸", tag: "Kenangan 6" },
+      { url: "foto/7.JPG", caption: "Seru-seruan Bareng 🎉", tag: "Kenangan 7" },
+      { url: "foto/8.JPG", caption: "Keceriaan Hari Ini 🎈", tag: "Kenangan 8" },
+      { url: "foto/9.JPG", caption: "Selalu Menggemaskan 💖", tag: "Kenangan 9" },
+      { url: "foto/10.JPG", caption: "Bintang Hari Ini 🌟", tag: "Kenangan 10" },
+      { url: "foto/11.JPG", caption: "Penuh Rasa Syukur 💐", tag: "Kenangan 11" },
+      { url: "foto/12.JPG", caption: "Kenangan Terindah 🎀", tag: "Kenangan 12" },
+      { url: "foto/13.JPG", caption: "Momen Berharga 💫", tag: "Kenangan 13" },
+      { url: "foto/14.JPG", caption: "Cantik Selalu 🌺", tag: "Kenangan 14" },
+      { url: "foto/15.PNG", caption: "Kenangan Abadi 💖", tag: "Kenangan 15" }
     ];
 
     const sliderTrack = document.getElementById('sliderTrack');
@@ -1244,7 +1439,6 @@
     const sliderToggleBtn = document.getElementById('sliderToggleBtn');
     const sliderPauseIcon = document.getElementById('sliderPauseIcon');
     const sliderPauseText = document.getElementById('sliderPauseText');
-    const multiPhotoInput = document.getElementById('multiPhotoInput');
 
     function createPolaroidItem(photo, index) {
       // Alternate slight tilt angles for scrapbook cartoon aesthetic
@@ -1364,35 +1558,132 @@
       showToast("Geser ke foto berikutnya 👉");
     });
 
-    // Handle Uploading Multiple Custom Photos (10-15 photos)
-    multiPhotoInput.addEventListener('change', (e) => {
-      const files = Array.from(e.target.files);
-      if (files.length === 0) return;
+    /* Taman Bunga Cinta - Floating Petals and Flower Interactivity */
+    function startFloatingPetalsGarden() {
+      const container = document.getElementById('floatingPetalsContainer');
+      if (!container) return;
 
-      const newPhotos = [];
-      let loadedCount = 0;
+      const petalIcons = ['🌸', '🌺', '🌷', '💮', '🍃', '✨', '💖'];
 
-      files.forEach((file, i) => {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          newPhotos.push({
-            url: event.target.result,
-            caption: file.name.replace(/\.[^/.]+$/, "").slice(0, 16) || `Kenangan Manis ✨`,
-            tag: `Foto #${i + 1}`
-          });
-          loadedCount++;
+      function spawnPetal() {
+        if (!container.isConnected) return;
+        const petal = document.createElement('div');
+        petal.className = 'floating-petal';
+        petal.textContent = petalIcons[Math.floor(Math.random() * petalIcons.length)];
 
-          if (loadedCount === files.length) {
-            // Replace memory photos with user's uploaded photos
-            memoryPhotos = newPhotos;
-            renderPhotoSlider();
-            fireBigConfetti();
-            showToast(`${files.length} foto berhasil dimasukkan ke slide! 🎉📸`);
-          }
-        };
-        reader.readAsDataURL(file);
+        const startY = Math.random() * 85 + 5;
+        const duration = 5 + Math.random() * 5;
+        const dx = (Math.random() * 160 + 120) + 'px';
+        const dy = (Math.random() * 60 - 30) + 'px';
+        const rot = (Math.random() * 360) + 'deg';
+
+        petal.style.top = `${startY}%`;
+        petal.style.left = `-5%`;
+        petal.style.setProperty('--petal-dx', dx);
+        petal.style.setProperty('--petal-dy', dy);
+        petal.style.setProperty('--petal-rot', rot);
+        petal.style.setProperty('--petal-dur', `${duration}s`);
+
+        container.appendChild(petal);
+        setTimeout(() => petal.remove(), duration * 1000);
+      }
+
+      for (let i = 0; i < 5; i++) {
+        setTimeout(spawnPetal, i * 500);
+      }
+      setInterval(spawnPetal, 1400);
+    }
+
+    startFloatingPetalsGarden();
+
+    // Interactive Flowers click & sound
+    const flowerElements = document.querySelectorAll('.flower-whole');
+    const flowerQuotes = [
+      "Bunga ini mekar seindah senyummu! 🌸",
+      "Cantiknya my sweet princess! 🌷",
+      "Wangi cinta dan doa tulus buat kamu! 💖",
+      "Hari bahagiamu penuh warna! ✨",
+      "Kamu selalu jadi bidadari terindah! 🌼",
+      "Mekar bersinar sepanjang masa! 🌺",
+      "Happy 20th birthday Noviku sayang! 🎂"
+    ];
+
+    flowerElements.forEach((flower, idx) => {
+      flower.style.cursor = 'pointer';
+      flower.title = 'Sentuh untuk mekarkan bunga! 🌸';
+
+      flower.addEventListener('click', () => {
+        // Re-trigger bloom animation
+        const head = flower.querySelector('.flower-head');
+        if (head) {
+          head.style.animation = 'none';
+          void head.offsetWidth; // reflow
+          head.style.animation = 'bloomOpen 0.85s ease-out forwards';
+        }
+
+        // Cute sound tone
+        initAudioContext();
+        const chimes = [523.25, 659.25, 783.99, 1046.5, 880.0];
+        playTone(chimes[idx % chimes.length], 0.35, 'triangle');
+
+        // Burst floating petals around flower
+        const rect = flower.getBoundingClientRect();
+        const fx = rect.left + rect.width / 2;
+        const fy = rect.top + rect.height * 0.35;
+
+        for (let i = 0; i < 10; i++) {
+          setTimeout(() => {
+            const p = document.createElement('span');
+            p.className = 'cheer-emoji';
+            p.textContent = ['🌸', '🌷', '✨', '💖', '🌺', '🌼'][Math.floor(Math.random() * 6)];
+            p.style.position = 'fixed';
+            p.style.left = `${fx}px`;
+            p.style.top = `${fy}px`;
+            const angle = Math.random() * Math.PI * 2;
+            const dist = 40 + Math.random() * 80;
+            p.style.setProperty('--dx', `${Math.cos(angle) * dist}px`);
+            p.style.setProperty('--dy', `${Math.sin(angle) * dist - 40}px`);
+            p.style.setProperty('--rot', `${Math.random() * 60 - 30}deg`);
+            document.body.appendChild(p);
+            setTimeout(() => p.remove(), 1600);
+          }, i * 35);
+        }
+
+        showToast(flowerQuotes[idx % flowerQuotes.length]);
       });
     });
+
+    // Siram & Mekarkan Semua Bunga Button
+    const waterGardenBtn = document.getElementById('waterGardenBtn');
+    if (waterGardenBtn) {
+      waterGardenBtn.addEventListener('click', () => {
+        initAudioContext();
+        // Play melodic arpeggio
+        [523.25, 659.25, 783.99, 1046.5, 1318.5].forEach((f, i) => {
+          setTimeout(() => playTone(f, 0.45, 'sine'), i * 110);
+        });
+
+        // Trigger bloom on all flowers in succession
+        flowerElements.forEach((flower, i) => {
+          setTimeout(() => {
+            const head = flower.querySelector('.flower-head');
+            if (head) {
+              head.style.animation = 'none';
+              void head.offsetWidth;
+              head.style.animation = 'bloomOpen 0.9s ease-out forwards';
+            }
+          }, i * 110);
+        });
+
+        // Spawn extra floating hearts & petals
+        for (let i = 0; i < 16; i++) {
+          setTimeout(spawnFloatingHeart, i * 70);
+        }
+
+        fireBigConfetti();
+        showToast("Semua bunga mekar sempurna penuh cinta untukmu! 🌸🌷💖");
+      });
+    }
   </script>
 </body>
 </html>
